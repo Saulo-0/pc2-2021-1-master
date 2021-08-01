@@ -7,13 +7,13 @@ import pc2.lab.aula09.view.DesenhoBoard;
 
 import java.util.ArrayList;
 
-public class AlessioPaint {
+public class ProgramPaint {
 
     private FiguraGeometrica[] vetor;
     private BasicConsole tela;
     private DesenhoBoard canvas;
 
-    public AlessioPaint(){
+    public ProgramPaint(){
         vetor= new FiguraGeometrica[5];
         tela = new BasicConsole();
         canvas = new DesenhoBoard();
@@ -49,6 +49,10 @@ public class AlessioPaint {
                 case RETANGULO:
                     Retangulo retangulo = new Retangulo();
                     insertFiguraGeométrica(retangulo, 1);
+                    break;
+                case CIRCULO:
+                    Circulo circle = tela.askCirculo();
+                    insertFiguraGeométrica(circle, 0);
                     break;
                 case LISTAR:
                     //Retangulo retangulo = new Retangulo();

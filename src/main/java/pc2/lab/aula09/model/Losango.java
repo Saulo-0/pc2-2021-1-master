@@ -1,64 +1,27 @@
 package pc2.lab.aula09.model;
 
-public class Losangulo extends Quadrilatero{
-    protected Ponto origem;
-    protected Ponto inferiorEsquerdo;
-    protected Ponto inferiorDireito;
-    protected Ponto superiorDireito;
-    protected Ponto superiorEsquerdo;
-    private int diagonalMaior;
-    private int diagonalMenor;
+public class Losango extends FiguraGeometrica{
 
-    public Losangulo() {
-        origem = new Ponto(0,0);
-        inferiorEsquerdo = origem;
-        inferiorDireito = new Ponto(0,1);
-        superiorDireito = new Ponto(1,2);
-        superiorEsquerdo = new Ponto(1,0);
-    }
+    protected int diagonalMaior;
+    protected int diagonalMenor;
+    protected double catetoOposto;
+    protected double catetoAdjacente;
+    protected double hipotenusa;
 
-    public Ponto getInferiorEsquerdo() {
-        return inferiorEsquerdo;
-    }
 
-    protected void setInferiorEsquerdo(Ponto inferiorEsquerdo) {
-        this.inferiorEsquerdo = inferiorEsquerdo;
-    }
-
-    public Ponto getInferiorDireito() {
-        return inferiorDireito;
-    }
-
-    protected void setInferiorDireito(Ponto inferiorDireito) {
-        this.inferiorDireito = inferiorDireito;
-    }
-
-    public Ponto getSuperiorDireito() {
-        return superiorDireito;
-    }
-
-    protected void setSuperiorDireito(Ponto superiorDireito) {
-        this.superiorDireito = superiorDireito;
-    }
-
-    public Ponto getSuperiorEsquerdo() {
-        return superiorEsquerdo;
-    }
-
-    protected void setSuperiorEsquerdo(Ponto superiorEsquerdo) {
-        this.superiorEsquerdo = superiorEsquerdo;
-    }
-
-    public void setDiagonalMaior(int diagonalMaior) {
-        this.diagonalMaior = inferior;
+    public Losango(){
+       catetoAdjacente = diagonalMaior/2;
+       catetoOposto = diagonalMenor/2;
+       hipotenusa = Math.pow(catetoAdjacente,2) + Math.pow(catetoOposto,2);
+       hipotenusa = Math.sqrt(hipotenusa);
     }
 
     public double getArea(){
-        return ;
+        return (diagonalMaior * diagonalMenor)/2;
     }
 
     public double getPerimetro(){
-        return 6.28 * tamanhoRaio;
+        return hipotenusa * 4;
     }
 
 }

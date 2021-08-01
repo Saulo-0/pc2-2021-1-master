@@ -4,16 +4,12 @@ public class Retangulo extends Quadrilatero{
 
     public Retangulo() {
         this(1, 2);
-//        inferiorEsquerdo = new Ponto(0,0);
-//        inferiorDireito = new Ponto(2,0);
-//        superiorDireito = new Ponto(1,2);
-//        superiorEsquerdo = new Ponto(0,2);
     }
 
     public Retangulo(int base, int altura) {
         inferiorEsquerdo = new Ponto(0,0);
-        inferiorDireito = new Ponto(base,0);
-        superiorDireito = new Ponto(base,altura);
+        inferiorDireito  = new Ponto(base,0);
+        superiorDireito  = new Ponto(base,altura);
         superiorEsquerdo = new Ponto(0,altura);
     }
 
