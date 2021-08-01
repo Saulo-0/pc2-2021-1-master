@@ -36,7 +36,7 @@ public class Circulo extends FiguraGeometrica{
     public String toString() {
         return "Circulo{" +
                 "tamanhoRaio=" + tamanhoRaio +
-                '}';
+                '}'; // saida correta das medidas.
     }
 
     @Override
@@ -51,7 +51,7 @@ public class Circulo extends FiguraGeometrica{
 
     @Override
     public int hashCode() {
-        return tamanhoRaio;
+        return (int) tamanhoRaio;
     }
 }
 

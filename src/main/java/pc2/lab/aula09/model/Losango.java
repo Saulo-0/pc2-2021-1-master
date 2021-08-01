@@ -24,4 +24,5 @@ public class Losango extends FiguraGeometrica{
         return hipotenusa * 4;
     }
 
+    // saida das medidas.
 }

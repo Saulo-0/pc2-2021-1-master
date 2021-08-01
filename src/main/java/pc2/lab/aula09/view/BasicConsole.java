@@ -27,6 +27,21 @@ public class BasicConsole {
         return in.nextInt();
     }
 
+    public Quadrado askQuadrado() {
+        showMsg("Digite um interio para o tamanho do lado do quadrado: ");
+        int tamanho  = in.nextInt();
+        Quadrado quad = new Quadrado(tamanho);
+
+        return quad;
+    }
+
+    public Circulo askCirculo(){
+        showLnMsg("Digite um inteiro para o tamanho do raio: ");
+        int tamanhoRaio = in.nextInt();
+        Circulo circle = new Circulo(tamanhoRaio);
+
+        return circle;
+    }
 
     public int askInt(){
         return in.nextInt();
@@ -68,5 +83,4 @@ public class BasicConsole {
                 return OpcoesMenuEnum.SAIR;
         }
     }
-
 }

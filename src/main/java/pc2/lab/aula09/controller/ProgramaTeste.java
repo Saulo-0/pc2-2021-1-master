@@ -6,7 +6,7 @@ import pc2.lab.aula09.view.BasicConsole;
 public class ProgramaTeste {
 
     public static void main(String[] args) {
-        AlessioPaint prog = new AlessioPaint();
+        ProgramPaint prog = new ProgramPaint();
         prog.mostrarMenu();
     }
 }
