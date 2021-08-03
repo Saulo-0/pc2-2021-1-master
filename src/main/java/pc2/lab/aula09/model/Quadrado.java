@@ -50,9 +50,7 @@ public class Quadrado extends Retangulo{
 
     @Override
     public String toString() {
-        return "Quadrado{" +
-                "tamanhoLado=" + tamanhoLado +
-                '}';
+        return "Quadrado:| Area=> "+ getArea() + " Perimetro => "+ getPerimetro();
     }
 
     @Override

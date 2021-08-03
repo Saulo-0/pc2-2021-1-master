@@ -34,9 +34,8 @@ public class Circulo extends FiguraGeometrica{
 
     @Override
     public String toString() {
-        return "Circulo{" +
-                "tamanhoRaio=" + tamanhoRaio +
-                '}'; // saida correta das medidas.
+        return "Circulo | Area => "+ getArea() +" Perimetro => "+ getPerimetro();
+
     }
 
     @Override

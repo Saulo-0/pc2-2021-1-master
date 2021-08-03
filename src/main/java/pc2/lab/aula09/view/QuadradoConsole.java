@@ -8,7 +8,7 @@ public class QuadradoConsole extends BasicConsole{
         showMsg("Digite um interio para o tamanho do lado do quadrado: ");
         int tamanho  = in.nextInt();
         Quadrado quad = new Quadrado(tamanho);
-
         return quad;
+
     }
 }

@@ -5,7 +5,7 @@ import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
 import pc2.lab.aula09.view.BasicConsole;
 import pc2.lab.aula09.view.DesenhoBoard;
 
-import java.util.ArrayList;
+
 
 public class ProgramPaint {
 
@@ -14,13 +14,12 @@ public class ProgramPaint {
     private DesenhoBoard canvas;
 
     public ProgramPaint(){
-        vetor= new FiguraGeometrica[5];
+        vetor= new FiguraGeometrica[10];
         tela = new BasicConsole();
         canvas = new DesenhoBoard();
     }
 
     public void mostrarMenu(){
-        testaArrayList();
         Ponto pont1 = new Ponto(0,0);
         Ponto pont2 = new Ponto(5,6);
         Ponto pont3 = new Ponto(2,8);
@@ -44,24 +43,30 @@ public class ProgramPaint {
             switch (opcao){
                 case QUADRADO:
                     Quadrado quad = tela.askQuadrado();
-                    insertFiguraGeométrica(quad, 0);
+                    insertFiguraGeometrica(quad);
                     break;
                 case RETANGULO:
-                    Retangulo retangulo = new Retangulo();
-                    insertFiguraGeométrica(retangulo, 1);
+                    Retangulo retangulo = tela.askRetangulo();
+                    insertFiguraGeometrica(retangulo);
                     break;
                 case CIRCULO:
                     Circulo circle = tela.askCirculo();
-                    insertFiguraGeométrica(circle, 0);
+                    insertFiguraGeometrica(circle);
+                    break;
+                case TRIANGULO:
+                    Triangulo tri = tela.askTriangulo();
+                    insertFiguraGeometrica(tri);
+                    break;
+                case LOSANGO:
+                    Losango losangulo = tela.askLosango();
+                    insertFiguraGeometrica(losangulo);
                     break;
                 case LISTAR:
-                    //Retangulo retangulo = new Retangulo();
-                    //insertFiguraGeométrica(retangulo, 1);
-                    for (int i = 0; i < vetor.length; i++) {
-                        if(vetor[i] != null) {
-                            System.out.println(vetor[i].toString());
-                        }
-                    }
+                    listar();
+                    break;
+                case APAGAR:
+
+                    apagar();
                     break;
                 case DESENHAR:
                     canvas.desenhar(vetor);
@@ -77,37 +82,37 @@ public class ProgramPaint {
         }while (opcao != OpcoesMenuEnum.SAIR);
     }
 
-    public boolean insertFiguraGeométrica(FiguraGeometrica fig, int i){
-        vetor[i] = fig;
-        //Aqui tem um for
-        // procura posição vazia
-        // Se está cheio retorna False
+    public boolean insertFiguraGeometrica(FiguraGeometrica fig){
+
+        for (int i = 0; i < vetor.length; i++) {
+            if(vetor[i] != null && i == 9) {
+                tela.showLnMsg("Vetor cheio!");
+            }
+            if(vetor[i] == null){
+               vetor[i] = fig;
+               break;
+            }
+        }
         return true;
     }
 
-    public void testaArrayList(){
-        ArrayList lista = new ArrayList();
+    public void listar(){
+        for (int i = 0; i < vetor.length; i++) {
+            if(vetor[i] != null) {
 
-        lista.add(1);
-        lista.add("dsdsdsd");
-        lista.add(new Ponto());
-        lista.add(new ArrayList());
+                tela.showLnMsg(""+ i + " - "+vetor[i].toString());
+            }
+        }
+    }
+    public void apagar(){
+        tela.showLnMsg("Vetor a ser apagado:");
+        int opcao = tela.askInt();
+        for(int i = 0; i < vetor.length; i++){
+            if(i == opcao){
+                vetor[i] = null;
+            }
+        }
 
-        //Ponto p = lista.get(2);
-//        Ponto p2 = (Ponto) lista.get(1);
-//        Object o = lista.get(2);
-//        if( o instanceof Ponto){
-//            Ponto p = (Ponto) o;
-//        }
-
-        tela.showMsg("------------TESTE parametrico---------------");
-
-        ArrayList<FiguraGeometrica> listaFig = new ArrayList();
-        listaFig.add(new Quadrado());
-
-      //  listaFig.indexOf()
-
-        tela.showMsg("------------FIM TESTE---------------");
     }
 
 }
