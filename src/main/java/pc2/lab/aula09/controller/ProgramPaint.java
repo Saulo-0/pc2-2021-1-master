@@ -1,5 +1,6 @@
 package pc2.lab.aula09.controller;
 
+import pc2.lab.aula09.view.QuadradoConsole;
 import pc2.lab.aula09.model.*;
 import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
 import pc2.lab.aula09.view.BasicConsole;
@@ -11,6 +12,7 @@ public class ProgramPaint {
 
     private FiguraGeometrica[] vetor;
     private BasicConsole tela;
+    private QuadradoConsole qua = new QuadradoConsole();
     private DesenhoBoard canvas;
 
     public ProgramPaint(){
@@ -20,18 +22,6 @@ public class ProgramPaint {
     }
 
     public void mostrarMenu(){
-        Ponto pont1 = new Ponto(0,0);
-        Ponto pont2 = new Ponto(5,6);
-        Ponto pont3 = new Ponto(2,8);
-        Ponto pont4 = new Ponto(4,4);
-
-        Quadrado quadradoNovo = new Quadrado();
-        Quadrado quadrado1 = new Quadrado(1);
-        Quadrado quadrado2 = new Quadrado(pont1, 5);
-
-        Retangulo rect1 = new Retangulo(1,2);
-        Retangulo rect3 = new Retangulo(4,2);
-        //Quadrado quadrado2 = new Quadrado(pont1, pont2, pont3,pont4);
 
         OpcoesMenuEnum opcao = OpcoesMenuEnum.LISTAR;
 
@@ -42,8 +32,7 @@ public class ProgramPaint {
 
             switch (opcao){
                 case QUADRADO:
-                    Quadrado quad = tela.askQuadrado();
-                    insertFiguraGeometrica(quad);
+                    qua.askSubmenu();
                     break;
                 case RETANGULO:
                     Retangulo retangulo = tela.askRetangulo();
@@ -114,5 +103,4 @@ public class ProgramPaint {
         }
 
     }
-
 }
