@@ -24,6 +24,7 @@ public class ProgramPaint {
     public void mostrarMenu(){
 
         OpcoesMenuEnum opcao = OpcoesMenuEnum.LISTAR;
+        OpcoesMenuEnum opcaosub;
 
         do{
             opcao = tela.askOpcaoMenuPrincial();
@@ -35,8 +36,45 @@ public class ProgramPaint {
                     qua.askSubMenu(this);
                     break;
                 case RETANGULO:
+
+                    do {
+
+                        opcaosub = tela.askSubMenu();
+                        tela.showMsg("escolhi: " + opcaosub + "\n\n");
+
+                        switch (opcaosub) {
+                            case NOVO:
+                                Retangulo ret = qua.askRetangulo();
+                                insertFiguraGeometrica(ret);
+                                break;
+                            case EDITAR:
+
+                                break;
+                            case LISTAR:
+                                listar(4);
+                                break;
+                            case MOSTRAR:
+
+                                break;
+                            case EXCLUIR:
+
+                                break;
+                            case VOLTAR:
+
+                                break;
+                            case SAIR:
+                                break;
+                            default:
+                                break;
+                        }
+
+
+                    } while (opcaosub != OpcoesMenuEnum.SAIR);
+
                     Retangulo retangulo = tela.askRetangulo();
+
                     insertFiguraGeometrica(retangulo);
+
                     break;
                 case CIRCULO:
                     Circulo circle = tela.askCirculo();
@@ -102,5 +140,14 @@ public class ProgramPaint {
             }
         }
 
+    }
+
+    public void listar(int hash){
+        for (int i = 0; i < vetor.length; i++) {
+            if(vetor[i] != null && hash == vetor[i].hashCode()) {
+
+                tela.showLnMsg(""+ i + " - "+vetor[i].toString());
+            }
+        }
     }
 }

@@ -11,8 +11,8 @@ public class QuadradoConsole extends BasicConsole {
 
 
         do {
-            askSubMenu();
-             opcaosub = askOpcaoMenuPrincial();
+
+             opcaosub = askSubMenu();
             showMsg("escolhi: " + opcaosub + "\n\n");
 
             switch (opcaosub) {

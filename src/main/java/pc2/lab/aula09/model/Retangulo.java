@@ -57,4 +57,8 @@ public class Retangulo extends Quadrilatero{
     public String toString() {
         return "Retângulo:  Area => "+ getAreaRetangulo()+" Perímetro => "+ getPerimetroRetangulo();
     }
+    @Override
+    public int hashCode() {
+        return 4;
+    }
 }
