@@ -32,7 +32,7 @@ public class ProgramPaint {
 
             switch (opcao){
                 case QUADRADO:
-                    qua.askSubmenu();
+                    qua.askSubMenu(this);
                     break;
                 case RETANGULO:
                     Retangulo retangulo = tela.askRetangulo();

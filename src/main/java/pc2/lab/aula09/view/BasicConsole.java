@@ -30,7 +30,7 @@ public class BasicConsole {
         return in.nextInt();
     }
 
-    public OpcoesMenuEnum askSubmenu(){
+    public OpcoesMenuEnum askSubMenu(){
         showMsg("MENU\n"+
                 "Digite uma opção: \n" +
                 "1 - Novo (Criar/Adicionar novo item)\n" +

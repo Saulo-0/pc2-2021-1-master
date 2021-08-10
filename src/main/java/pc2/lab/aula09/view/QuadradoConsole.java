@@ -6,16 +6,19 @@ import pc2.lab.aula09.controller.ProgramPaint;
 
 public class QuadradoConsole extends BasicConsole {
 
-    public void askSubMenu() {
-        OpcoesMenuEnum opcao = OpcoesMenuEnum.LISTAR;
-        do {
-             opcao = askOpcaoMenuPrincial();
-            showMsg("escolhi: " + opcao + "\n\n");
+    public void askSubMenu(ProgramPaint programa) {
+        OpcoesMenuEnum opcaosub = OpcoesMenuEnum.LISTAR;
 
-            switch (opcao) {
+
+        do {
+            askSubMenu();
+             opcaosub = askOpcaoMenuPrincial();
+            showMsg("escolhi: " + opcaosub + "\n\n");
+
+            switch (opcaosub) {
                 case NOVO:
-                    Quadrado quad = askQuadrado();
-                   // insertFiguraGeometrica(quad);
+                Quadrado quad = askQuadrado();
+                 programa.insertFiguraGeometrica(quad);
                     break;
                 case EDITAR:
 
@@ -39,7 +42,7 @@ public class QuadradoConsole extends BasicConsole {
             }
 
 
-        } while (opcao != OpcoesMenuEnum.SAIR);
+        } while (opcaosub != OpcoesMenuEnum.SAIR);
 
     }
     public Quadrado askQuadrado() {
