@@ -50,7 +50,8 @@ public class Circulo extends FiguraGeometrica{
 
     @Override
     public int hashCode() {
-        return (int) tamanhoRaio;
+        return 5;
     }
+
 }
 

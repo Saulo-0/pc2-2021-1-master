@@ -57,7 +57,7 @@ public class ProgramPaint {
 
                                 break;
                             case EXCLUIR:
-
+                                excluir(4);
                                 break;
                             case VOLTAR:
 
@@ -77,30 +77,132 @@ public class ProgramPaint {
 
                     break;
                 case CIRCULO:
+                    do {
+
+                        opcaosub = tela.askSubMenu();
+                        tela.showMsg("escolhi: " + opcaosub + "\n\n");
+
+                        switch (opcaosub) {
+                            case NOVO:
+                                Circulo circle = qua.askCirculo();
+                                insertFiguraGeometrica(circle);
+                                break;
+                            case EDITAR:
+
+                                break;
+                            case LISTAR:
+                                listar(5);
+                                break;
+                            case MOSTRAR:
+
+                                break;
+                            case EXCLUIR:
+                                excluir(5);
+                                break;
+                            case VOLTAR:
+
+                                break;
+                            case SAIR:
+                                break;
+                            default:
+                                break;
+                        }
+
+
+                    } while (opcaosub != OpcoesMenuEnum.SAIR);
+
                     Circulo circle = tela.askCirculo();
+
                     insertFiguraGeometrica(circle);
                     break;
                 case TRIANGULO:
+                    do {
+
+                        opcaosub = tela.askSubMenu();
+                        tela.showMsg("escolhi: " + opcaosub + "\n\n");
+
+                        switch (opcaosub) {
+                            case NOVO:
+                                Triangulo tri = qua.askTriangulo();
+                                insertFiguraGeometrica(tri);
+                                break;
+                            case EDITAR:
+
+                                break;
+                            case LISTAR:
+                                listar(7);
+                                break;
+                            case MOSTRAR:
+
+                                break;
+                            case EXCLUIR:
+                                excluir(7);
+                                break;
+                            case VOLTAR:
+
+                                break;
+                            case SAIR:
+                                break;
+                            default:
+                                break;
+                        }
+
+
+                    } while (opcaosub != OpcoesMenuEnum.SAIR);
+
                     Triangulo tri = tela.askTriangulo();
+
                     insertFiguraGeometrica(tri);
                     break;
                 case LOSANGO:
+                    do {
+
+                        opcaosub = tela.askSubMenu();
+                        tela.showMsg("escolhi: " + opcaosub + "\n\n");
+
+                        switch (opcaosub) {
+                            case NOVO:
+                                Losango losangulo = qua.askLosango();
+                                insertFiguraGeometrica(losangulo);
+                                break;
+                            case EDITAR:
+
+                                break;
+                            case LISTAR:
+                                listar(6);
+                                break;
+                            case MOSTRAR:
+
+                                break;
+                            case EXCLUIR:
+                                excluir(6);
+                                break;
+                            case VOLTAR:
+
+                                break;
+                            case SAIR:
+                                break;
+                            default:
+                                break;
+                        }
+
+
+                    } while (opcaosub != OpcoesMenuEnum.SAIR);
+
                     Losango losangulo = tela.askLosango();
+
                     insertFiguraGeometrica(losangulo);
                     break;
                 case LISTAR:
                     listar();
                     break;
                 case APAGAR:
-
                     apagar();
                     break;
                 case DESENHAR:
                     canvas.desenhar(vetor);
                     break;
                 case SAIR:
-
-
                     break;
                 default:
             }
@@ -139,14 +241,20 @@ public class ProgramPaint {
                 vetor[i] = null;
             }
         }
-
     }
-
+             // retângulo
     public void listar(int hash){
         for (int i = 0; i < vetor.length; i++) {
             if(vetor[i] != null && hash == vetor[i].hashCode()) {
-
                 tela.showLnMsg(""+ i + " - "+vetor[i].toString());
+            }
+        }
+    }
+
+    public void excluir(int hash){
+        for(int i = 0; i < vetor.length; i++){
+            if(hash == vetor[i].hashCode()){
+                vetor[i] = null;
             }
         }
     }

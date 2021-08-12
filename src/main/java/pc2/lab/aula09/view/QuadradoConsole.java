@@ -9,7 +9,6 @@ public class QuadradoConsole extends BasicConsole {
     public void askSubMenu(ProgramPaint programa) {
         OpcoesMenuEnum opcaosub = OpcoesMenuEnum.LISTAR;
 
-
         do {
 
              opcaosub = askSubMenu();
