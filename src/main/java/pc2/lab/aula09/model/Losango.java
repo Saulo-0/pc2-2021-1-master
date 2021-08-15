@@ -34,4 +34,9 @@ public class Losango extends FiguraGeometrica {
     public String toString() {
         return "Losango | Area => " + getArea() + " Perimetro => " + getPerimetro();
     }
+
+    @Override
+    public int hashCode() {
+        return 6;
+    }
 }

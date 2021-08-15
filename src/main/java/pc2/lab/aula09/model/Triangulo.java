@@ -34,4 +34,9 @@ public class Triangulo extends FiguraGeometrica{
     public String toString() {
         return "Triângulo | Area => "+ getArea() +" Perimetro => "+ getPerimetro();
     }
+
+    @Override
+    public int hashCode() {
+        return 7;
+    }
  }

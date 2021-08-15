@@ -1,4 +1,4 @@
-package pc2.lab.aula09.view;
+package pc2.lab.aula09.view.cli;
 
 import pc2.lab.aula09.model.*;
 import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
@@ -12,7 +12,7 @@ public class QuadradoConsole extends BasicConsole {
         do {
 
              opcaosub = askSubMenu();
-            showMsg("escolhi: " + opcaosub + "\n\n");
+            showMessage("escolhi: " + opcaosub + "\n\n");
 
             switch (opcaosub) {
                 case NOVO:
@@ -45,7 +45,7 @@ public class QuadradoConsole extends BasicConsole {
 
     }
     public Quadrado askQuadrado() {
-        showMsg("Digite um interio para o tamanho do lado do quadrado: ");
+        showMessage("Digite um interio para o tamanho do lado do quadrado: ");
         int tamanho = in.nextInt();
         Quadrado quad = new Quadrado(tamanho);
         return quad;

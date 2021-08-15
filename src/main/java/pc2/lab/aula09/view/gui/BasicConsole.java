@@ -1,11 +1,10 @@
-package pc2.lab.aula09.view;
+package pc2.lab.aula09.view.gui;
 
-import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
 import pc2.lab.aula09.model.Circulo;
-import pc2.lab.aula09.model.Quadrado;
 import pc2.lab.aula09.model.Losango;
-import pc2.lab.aula09.model.Triangulo;
 import pc2.lab.aula09.model.Retangulo;
+import pc2.lab.aula09.model.Triangulo;
+import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
 
 import java.util.Scanner;
 
