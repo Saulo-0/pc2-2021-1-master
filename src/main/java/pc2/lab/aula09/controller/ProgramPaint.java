@@ -1,27 +1,37 @@
 package pc2.lab.aula09.controller;
 
+import pc2.lab.aula09.dao.FigurasGeometricasDAO;
 import pc2.lab.aula09.view.IBasicView;
-import pc2.lab.aula09.view.cli.QuadradoConsole;
 import pc2.lab.aula09.model.*;
 import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
-import pc2.lab.aula09.view.cli.BasicConsole;
+import pc2.lab.aula09.view.IMenuView;
+import pc2.lab.aula09.view.cli.*;
 import pc2.lab.aula09.view.DesenhoBoard;
 import pc2.lab.aula09.view.gui.CirculoConsole;
 
-
 public class ProgramPaint {
 
+    private IMenuView menuTela;
     private FiguraGeometrica[] vetor;
+    private FigurasGeometricasDAO dao;
     private IBasicView tela;
-    private CirculoConsole telaCirculo;
-    private QuadradoConsole qua = new QuadradoConsole();
     private DesenhoBoard canvas;
+    private CirculoConsole telaCirculo;
+    private TrianguloConsole telaTriangulo;
+    private LosangoConsole telaLosango;
+    private RetanguloConsole telaRetangulo;
+    private QuadradoConsole telaQuadrado= new QuadradoConsole();
+
 
     public ProgramPaint(){
         vetor= new FiguraGeometrica[10];
+        dao = new FigurasGeometricasDAO();
         tela = new BasicConsole();
         canvas = new DesenhoBoard();
         telaCirculo = new CirculoConsole();
+        telaTriangulo = new TrianguloConsole();
+        telaLosango = new LosangoConsole();
+        telaRetangulo = new RetanguloConsole();
     }
 
     public void mostrarMenu(){
@@ -30,24 +40,24 @@ public class ProgramPaint {
         OpcoesMenuEnum opcaosub;
 
         do{
-            opcao = tela.askOpcaoMenuPrincial();
+            opcao = menuTela.askOpcaoMenuPrincial();
 
             tela.showMessage("escolhi: "+ opcao+"\n\n");
 
             switch (opcao){
                 case QUADRADO:
-                    qua.askSubMenu(this);
+                    telaQuadrado.askSubMenu(this);
                     break;
                 case RETANGULO:
 
                     do {
 
-                        opcaosub = tela.askSubMenu();
+                        opcaosub = menuTela.askSubMenu();
                         tela.showMessage("escolhi: " + opcaosub + "\n\n");
 
                         switch (opcaosub) {
                             case NOVO:
-                                Retangulo ret = qua.askRetangulo();
+                                Retangulo ret = telaRetangulo.askRetangulo();
                                 insertFiguraGeometrica(ret);
                                 break;
                             case EDITAR:
@@ -65,6 +75,8 @@ public class ProgramPaint {
                             case VOLTAR:
 
                                 break;
+                            case SALVAR:
+                                dao.salvarEmArquivos();
                             case SAIR:
                                 break;
                             default:
@@ -78,7 +90,7 @@ public class ProgramPaint {
                 case CIRCULO:
                     do {
 
-                        opcaosub = tela.askSubMenu();
+                        opcaosub = menuTela.askSubMenu();
                         tela.showMessage("escolhi: " + opcaosub + "\n\n");
 
                         switch (opcaosub) {
@@ -101,6 +113,8 @@ public class ProgramPaint {
                             case VOLTAR:
 
                                 break;
+                            case SALVAR:
+                                dao.salvarEmArquivos();
                             case SAIR:
                                 break;
                             default:
@@ -114,12 +128,12 @@ public class ProgramPaint {
                 case TRIANGULO:
                     do {
 
-                        opcaosub = tela.askSubMenu();
+                        opcaosub = menuTela.askSubMenu();
                         tela.showMessage("escolhi: " + opcaosub + "\n\n");
 
                         switch (opcaosub) {
                             case NOVO:
-                                Triangulo tri = qua.askTriangulo();
+                                Triangulo tri = telaTriangulo.askTriangulo();
                                 insertFiguraGeometrica(tri);
                                 break;
                             case EDITAR:
@@ -137,6 +151,8 @@ public class ProgramPaint {
                             case VOLTAR:
 
                                 break;
+                            case SALVAR:
+                                dao.salvarEmArquivos();
                             case SAIR:
                                 break;
                             default:
@@ -150,12 +166,12 @@ public class ProgramPaint {
                 case LOSANGO:
                     do {
 
-                        opcaosub = tela.askSubMenu();
+                        opcaosub = menuTela.askSubMenu();
                         tela.showMessage("escolhi: " + opcaosub + "\n\n");
 
                         switch (opcaosub) {
                             case NOVO:
-                                Losango losangulo = qua.askLosango();
+                                Losango losangulo = telaLosango.askLosango();
                                 insertFiguraGeometrica(losangulo);
                                 break;
                             case EDITAR:
@@ -172,6 +188,9 @@ public class ProgramPaint {
                                 break;
                             case VOLTAR:
 
+                                break;
+                            case SALVAR:
+                                dao.salvarEmArquivos();
                                 break;
                             case SAIR:
                                 break;
@@ -212,15 +231,14 @@ public class ProgramPaint {
         }
     }
     public void apagar(){
-        tela.showLineMessage("Vetor a ser apagado:");
-        int opcao = tela.askInt();
+        int opcao = tela.askForInt("Vetor a ser apagado:");
         for(int i = 0; i < vetor.length; i++){
             if(i == opcao){
                 vetor[i] = null;
             }
         }
     }
-             // retângulo
+             // Geral
     public void listar(int hash){
         for (int i = 0; i < vetor.length; i++) {
             if(vetor[i] != null && hash == vetor[i].hashCode()) {

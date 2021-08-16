@@ -3,15 +3,18 @@ package pc2.lab.aula09.view.cli;
 import pc2.lab.aula09.model.*;
 import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
 import pc2.lab.aula09.controller.ProgramPaint;
+import pc2.lab.aula09.view.IMenuView;
+import pc2.lab.aula09.view.IQuadrado;
 
-public class QuadradoConsole extends BasicConsole {
+public class QuadradoConsole extends BasicConsole implements IQuadrado {
 
     public void askSubMenu(ProgramPaint programa) {
         OpcoesMenuEnum opcaosub = OpcoesMenuEnum.LISTAR;
+        MenuConsole menuTela = new MenuConsole();
 
         do {
 
-             opcaosub = askSubMenu();
+             opcaosub = menuTela.askSubMenu();
             showMessage("escolhi: " + opcaosub + "\n\n");
 
             switch (opcaosub) {
@@ -34,6 +37,8 @@ public class QuadradoConsole extends BasicConsole {
                 case VOLTAR:
 
                     break;
+                case SALVAR:
+                    dao.salvarEmArquivos();
                 case SAIR:
                     break;
                 default:
