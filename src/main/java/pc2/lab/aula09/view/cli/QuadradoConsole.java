@@ -37,6 +37,8 @@ public class QuadradoConsole extends BasicConsole implements IQuadrado {
                 case VOLTAR:
 
                     break;
+                case RECARREGAR:
+                    break;
                 case SALVAR:
                     dao.salvarEmArquivos();
                 case SAIR:

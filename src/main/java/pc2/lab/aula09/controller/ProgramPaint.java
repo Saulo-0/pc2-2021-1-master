@@ -24,7 +24,7 @@ public class ProgramPaint {
 
 
     public ProgramPaint(){
-        vetor= new FiguraGeometrica[10];
+        vetor = new FiguraGeometrica[10];
         dao = new FigurasGeometricasDAO();
         tela = new BasicConsole();
         canvas = new DesenhoBoard();
@@ -75,6 +75,8 @@ public class ProgramPaint {
                             case VOLTAR:
 
                                 break;
+                            case RECARREGAR:
+                                break;
                             case SALVAR:
                                 dao.salvarEmArquivos();
                             case SAIR:
@@ -112,6 +114,8 @@ public class ProgramPaint {
                                 break;
                             case VOLTAR:
 
+                                break;
+                            case RECARREGAR:
                                 break;
                             case SALVAR:
                                 dao.salvarEmArquivos();
@@ -151,6 +155,8 @@ public class ProgramPaint {
                             case VOLTAR:
 
                                 break;
+                            case RECARREGAR:
+                                break;
                             case SALVAR:
                                 dao.salvarEmArquivos();
                             case SAIR:
@@ -188,6 +194,8 @@ public class ProgramPaint {
                                 break;
                             case VOLTAR:
 
+                                break;
+                            case RECARREGAR:
                                 break;
                             case SALVAR:
                                 dao.salvarEmArquivos();
