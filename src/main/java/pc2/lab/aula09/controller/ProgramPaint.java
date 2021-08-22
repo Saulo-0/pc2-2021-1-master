@@ -9,7 +9,7 @@ import pc2.lab.aula09.view.cli.*;
 import pc2.lab.aula09.view.DesenhoBoard;
 import pc2.lab.aula09.view.gui.CirculoConsole;
 
-public class ProgramPaint {
+public class ProgramPaint extends FigurasGeometricasDAO {
 
     private IMenuView menuTela;
     private FiguraGeometrica[] vetor;
@@ -24,8 +24,9 @@ public class ProgramPaint {
 
 
     public ProgramPaint(){
-        vetor = new FiguraGeometrica[10];
-        dao = new FigurasGeometricasDAO();
+        super(10);
+        menuTela = new MenuConsole();
+        dao = new FigurasGeometricasDAO(10);
         tela = new BasicConsole();
         canvas = new DesenhoBoard();
         telaCirculo = new CirculoConsole();
@@ -58,19 +59,19 @@ public class ProgramPaint {
                         switch (opcaosub) {
                             case NOVO:
                                 Retangulo ret = telaRetangulo.askRetangulo();
-                                insertFiguraGeometrica(ret);
+                                dao.insertFiguraGeometrica(ret);
                                 break;
                             case EDITAR:
 
                                 break;
                             case LISTAR:
-                                listar(4);
+                                dao.listar();
                                 break;
                             case MOSTRAR:
 
                                 break;
                             case EXCLUIR:
-                                excluir(4);
+                                dao.excluir(4);
                                 break;
                             case VOLTAR:
 
@@ -78,7 +79,8 @@ public class ProgramPaint {
                             case RECARREGAR:
                                 break;
                             case SALVAR:
-                                dao.salvarEmArquivos();
+
+                                break;
                             case SAIR:
                                 break;
                             default:
@@ -98,19 +100,19 @@ public class ProgramPaint {
                         switch (opcaosub) {
                             case NOVO:
                                 Circulo circle = telaCirculo.askCirculo();
-                                insertFiguraGeometrica(circle);
+                                dao.insertFiguraGeometrica(circle);
                                 break;
                             case EDITAR:
 
                                 break;
                             case LISTAR:
-                                listar(5);
+                                dao.listar();
                                 break;
                             case MOSTRAR:
 
                                 break;
                             case EXCLUIR:
-                                excluir(5);
+                                dao.excluir(5);
                                 break;
                             case VOLTAR:
 
@@ -118,7 +120,7 @@ public class ProgramPaint {
                             case RECARREGAR:
                                 break;
                             case SALVAR:
-                                dao.salvarEmArquivos();
+
                             case SAIR:
                                 break;
                             default:
@@ -138,19 +140,19 @@ public class ProgramPaint {
                         switch (opcaosub) {
                             case NOVO:
                                 Triangulo tri = telaTriangulo.askTriangulo();
-                                insertFiguraGeometrica(tri);
+                                dao.insertFiguraGeometrica(tri);
                                 break;
                             case EDITAR:
 
                                 break;
                             case LISTAR:
-                                listar(7);
+                                dao.listar();
                                 break;
                             case MOSTRAR:
 
                                 break;
                             case EXCLUIR:
-                                excluir(7);
+                                dao.excluir(7);
                                 break;
                             case VOLTAR:
 
@@ -158,7 +160,7 @@ public class ProgramPaint {
                             case RECARREGAR:
                                 break;
                             case SALVAR:
-                                dao.salvarEmArquivos();
+
                             case SAIR:
                                 break;
                             default:
@@ -178,19 +180,19 @@ public class ProgramPaint {
                         switch (opcaosub) {
                             case NOVO:
                                 Losango losangulo = telaLosango.askLosango();
-                                insertFiguraGeometrica(losangulo);
+                                dao.insertFiguraGeometrica(losangulo);
                                 break;
                             case EDITAR:
 
                                 break;
                             case LISTAR:
-                                listar(6);
+                                dao.listar();
                                 break;
                             case MOSTRAR:
 
                                 break;
                             case EXCLUIR:
-                                excluir(6);
+                                dao.excluir(6);
                                 break;
                             case VOLTAR:
 
@@ -198,7 +200,7 @@ public class ProgramPaint {
                             case RECARREGAR:
                                 break;
                             case SALVAR:
-                                dao.salvarEmArquivos();
+
                                 break;
                             case SAIR:
                                 break;
@@ -216,50 +218,6 @@ public class ProgramPaint {
         }while (opcao != OpcoesMenuEnum.SAIR);
     }
 
-    public boolean insertFiguraGeometrica(FiguraGeometrica fig){
 
-        for (int i = 0; i < vetor.length; i++) {
-            if(vetor[i] != null && i == 9) {
-                tela.showLineMessage("Vetor cheio!");
-            }
-            if(vetor[i] == null){
-               vetor[i] = fig;
-               break;
-            }
-        }
-        return true;
-    }
 
-    public void listar(){
-        for (int i = 0; i < vetor.length; i++) {
-            if(vetor[i] != null) {
-
-                tela.showLineMessage(""+ i + " - "+vetor[i].toString());
-            }
-        }
-    }
-    public void apagar(){
-        int opcao = tela.askForInt("Vetor a ser apagado:");
-        for(int i = 0; i < vetor.length; i++){
-            if(i == opcao){
-                vetor[i] = null;
-            }
-        }
-    }
-             // Geral
-    public void listar(int hash){
-        for (int i = 0; i < vetor.length; i++) {
-            if(vetor[i] != null && hash == vetor[i].hashCode()) {
-                tela.showLineMessage(""+ i + " - "+vetor[i].toString());
-            }
-        }
-    }
-
-    public void excluir(int hash){
-        for(int i = 0; i < vetor.length; i++){
-            if(hash == vetor[i].hashCode()){
-                vetor[i] = null;
-            }
-        }
-    }
 }

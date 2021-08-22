@@ -9,51 +9,100 @@ import java.io.*;
 
 public class FigurasGeometricasDAO  {
 
-    public void salvarEmArquivos(FiguraGeometrica[] fig) throws IOException {
+    IBasicView tela;
+    FiguraGeometrica[] vetor;
 
-        IBasicView tela;
-        FiguraGeometrica[] vetor;
+    public FigurasGeometricasDAO(int tamanho) {
+      tela = new IBasicView() {
+          @Override
+          public void showMessage(String msg) {
+
+          }
+
+          @Override
+          public void showLineMessage(String msg) {
+
+          }
+
+          @Override
+          public int askForInt(String question) {
+              return 0;
+          }
+
+          @Override
+          public double askForDouble(String question) {
+              return 0;
+          }
+
+          @Override
+          public String askForString(String question) {
+              return null;
+          }
+
+          @Override
+          public boolean hasNextInt() {
+              return false;
+          }
+      } ;
+      vetor = new FiguraGeometrica[tamanho];
+    }
+    public boolean insertFiguraGeometrica(FiguraGeometrica fig){
+
+        for (int i = 0; i < vetor.length; i++) {
+            if(vetor[i] != null && i == 9) {
+                tela.showLineMessage("Vetor cheio!");
+            }
+            if(vetor[i] == null){
+                vetor[i] = fig;
+                break;
+            }
+        }
+        return true;
+    }
+    protected void listar(FiguraGeometrica fig) {
+        for (int i = 0; i < vetor.length; i++) {
+            if(vetor[i] != null) {
+
+                tela.showLineMessage(""+ i + " - "+vetor[i].toString());
+            }
+        }
+    }
+    public void apagar(){
+        int opcao = tela.askForInt("Vetor a ser apagado:");
+        for(int i = 0; i < vetor.length; i++){
+            if(i == opcao){
+                vetor[i] = null;
+            }
+        }
+    }
+    // Geral
+    public void mostrar(int hash){
+        for (int i = 0; i < vetor.length; i++) {
+            if(vetor[i] != null && hash == vetor[i].hashCode()) {
+
+                tela.showLineMessage(""+ i + " - "+vetor[i].toString());
+            }
+        }
+    }
+
+    public void excluir(int hash){
+        for(int i = 0; i < vetor.length; i++){
+            if(hash == vetor[i].hashCode()){
+                vetor[i] = null;
+            }
+        }
+    }
+
+
+    public void salvarEmArquivos() throws IOException {
 
         FileOutputStream arquivo = null;
         try {
             arquivo = new FileOutputStream("figurasGeometrica.dat");
             ObjectOutputStream out = new ObjectOutputStream(arquivo);
-            out.writeObject(fig);
+            out.writeObject(vetor);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
-        public void listar();
-        {
-            for (int i = 0; i < vetor.length; i++) {
-                if(vetor[i] != null) {
-
-                    tela.showLineMessage(""+ i + " - "+vetor[i].toString());
-                }
-            }
-        }
-        public void apagar(){
-            int opcao = tela.askForInt("Vetor a ser apagado:");
-            for(int i = 0; i < vetor.length; i++){
-                if(i == opcao){
-                    vetor[i] = null;
-                }
-            }
-        }
-        // Geral
-        public void mostrar(int hash){
-            for (int i = 0; i < vetor.length; i++) {
-                if(vetor[i] != null && hash == vetor[i].hashCode()) {
-                    tela.showLineMessage(""+ i + " - "+vetor[i].toString());
-                }
-            }
-        }
-
-        public void excluir(int hash){
-            for(int i = 0; i < vetor.length; i++){
-                if(hash == vetor[i].hashCode()){
-                    vetor[i] = null;
-                }
-            }
         }
 
 
@@ -85,7 +134,5 @@ public class FigurasGeometricasDAO  {
             return fig;
         }
 
-
-
-    }
 }
+

@@ -40,7 +40,7 @@ public class QuadradoConsole extends BasicConsole implements IQuadrado {
                 case RECARREGAR:
                     break;
                 case SALVAR:
-                    dao.salvarEmArquivos();
+
                 case SAIR:
                     break;
                 default:
