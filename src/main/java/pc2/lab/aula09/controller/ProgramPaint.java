@@ -16,11 +16,14 @@ public class ProgramPaint extends FigurasGeometricasDAO {
     private FigurasGeometricasDAO dao;
     private IBasicView tela;
     private DesenhoBoard canvas;
+
     private CirculoConsole telaCirculo;
     private TrianguloConsole telaTriangulo;
     private LosangoConsole telaLosango;
     private RetanguloConsole telaRetangulo;
     private QuadradoConsole telaQuadrado= new QuadradoConsole();
+
+    private LosangoCtrl losanguloC;
 
 
     public ProgramPaint(){
@@ -29,10 +32,13 @@ public class ProgramPaint extends FigurasGeometricasDAO {
         dao = new FigurasGeometricasDAO(10);
         tela = new BasicConsole();
         canvas = new DesenhoBoard();
+
         telaCirculo = new CirculoConsole();
         telaTriangulo = new TrianguloConsole();
         telaLosango = new LosangoConsole();
         telaRetangulo = new RetanguloConsole();
+
+        losanguloC = new LosangoCtrl();
     }
 
     public void mostrarMenu(){

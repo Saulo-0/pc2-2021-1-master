@@ -108,7 +108,7 @@ public class FigurasGeometricasDAO  {
 
 }
 
-    public FiguraGeometrica[]  carregarDeArquivo() throws IOException, ClassNotFoundException{
+    public FiguraGeometrica[]  carregarDeArquivo(){ //throws IOException, ClassNotFoundException
         FiguraGeometrica[] fig = null;
 
         try {
