@@ -18,7 +18,7 @@ public class ProgramPaint {
     private DesenhoBoard canvas;
 
     private CirculoConsole telaCirculo;
-   // private TrianguloConsole telaTriangulo;
+    private TrianguloConsole telaTriangulo;
     private LosangoConsole telaLosango;
     private RetanguloConsole telaRetangulo;
     private QuadradoConsole telaQuadrado;
@@ -36,7 +36,7 @@ public class ProgramPaint {
         canvas = new DesenhoBoard();
 
         telaCirculo = new CirculoConsole();
-       // telaTriangulo = new TrianguloConsole();
+       telaTriangulo = new TrianguloConsole();
         telaLosango = new LosangoConsole();
         telaRetangulo = new RetanguloConsole();
         telaQuadrado = new QuadradoConsole();
@@ -73,13 +73,13 @@ public class ProgramPaint {
                     tela.showMessage("escolhi: " + opcaosub + "\n\n");
                     break;
                 case CIRCULO:
-                    //telaCirculo.askSubMenu(dao);
+                    telaCirculo.askSubMenu(dao);
                     break;
                 case LOSANGO:
                     telaLosango.askSubMenu(dao);
                     break;
                 case TRIANGULO:
-                   // telaTriangulo.askSubMenu(dao);
+                    telaTriangulo.askSubMenu(dao);
                     break;
                 case DESENHAR:
                     break;
