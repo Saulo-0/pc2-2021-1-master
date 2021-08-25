@@ -7,8 +7,6 @@ import pc2.lab.aula09.view.cli.BasicConsole;
 
 import java.io.*;
 
-
-
 public class DAO  {
 
     FiguraGeometrica[] vetor;
@@ -35,6 +33,13 @@ public class DAO  {
         for (int i = 0; i < vetor.length; i++) {
             if(vetor[i] != null) {
 
+                tela.showLineMessage(""+ i + " - "+vetor[i].toString());
+            }
+        }
+    }
+    public void listar(int nome) {
+        for (int i = 0; i < vetor.length; i++) {
+            if(vetor[i] != null && vetor[i].hashCode() == 6) {
                 tela.showLineMessage(""+ i + " - "+vetor[i].toString());
             }
         }

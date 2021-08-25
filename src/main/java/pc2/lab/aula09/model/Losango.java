@@ -10,15 +10,16 @@ public class Losango extends FiguraGeometrica {
 
 
     public Losango() {
-        catetoAdjacente = diagonalMaior / 2;
-        catetoOposto = diagonalMenor / 2;
-        hipotenusa = Math.pow(catetoAdjacente, 2) + Math.pow(catetoOposto, 2);
-        hipotenusa = Math.sqrt(hipotenusa);
+
     }
 
     public Losango(int diagonalMaior, int diagonalMenor) {
         this.diagonalMaior = diagonalMaior;
         this.diagonalMenor = diagonalMenor;
+        catetoAdjacente = diagonalMaior / 2;
+        catetoOposto = diagonalMenor / 2;
+        hipotenusa = Math.pow(catetoAdjacente, 2) + Math.pow(catetoOposto, 2);
+        hipotenusa = Math.sqrt(hipotenusa);
         this.getArea();
         this.getPerimetro();
     }

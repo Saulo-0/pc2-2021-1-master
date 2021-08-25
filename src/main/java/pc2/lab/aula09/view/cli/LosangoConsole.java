@@ -26,7 +26,7 @@ public class LosangoConsole extends BasicConsole implements ILosango {
 
                     break;
                 case LISTAR:
-
+                    dao.listar(6);
                     break;
                 case MOSTRAR:
 
