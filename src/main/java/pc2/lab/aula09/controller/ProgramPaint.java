@@ -7,7 +7,6 @@ import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
 import pc2.lab.aula09.view.IMenuView;
 import pc2.lab.aula09.view.cli.*;
 import pc2.lab.aula09.view.DesenhoBoard;
-import pc2.lab.aula09.view.gui.CirculoConsole;
 
 public class ProgramPaint {
 
@@ -36,7 +35,7 @@ public class ProgramPaint {
         canvas = new DesenhoBoard();
 
         telaCirculo = new CirculoConsole();
-       telaTriangulo = new TrianguloConsole();
+        telaTriangulo = new TrianguloConsole();
         telaLosango = new LosangoConsole();
         telaRetangulo = new RetanguloConsole();
         telaQuadrado = new QuadradoConsole();
