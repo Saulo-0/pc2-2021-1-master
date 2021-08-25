@@ -3,10 +3,11 @@ package pc2.lab.aula09.view.gui;
 import pc2.lab.aula09.controller.ProgramPaint;
 import pc2.lab.aula09.model.Quadrado;
 import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
+import pc2.lab.aula09.dao.DAO;
 
 public class QuadradoConsole extends BasicConsole {
 
-    public void askSubMenu(ProgramPaint programa) {
+    public void askSubMenu(DAO dao) {
         OpcoesMenuEnum opcaosub = OpcoesMenuEnum.LISTAR;
 
         do {
@@ -17,7 +18,7 @@ public class QuadradoConsole extends BasicConsole {
             switch (opcaosub) {
                 case NOVO:
                 Quadrado quad = askQuadrado();
-                 programa.insertFiguraGeometrica(quad);
+                 dao.insertFiguraGeometrica(quad);
                     break;
                 case EDITAR:
 

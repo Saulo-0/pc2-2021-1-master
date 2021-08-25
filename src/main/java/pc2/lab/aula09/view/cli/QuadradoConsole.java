@@ -5,8 +5,10 @@ import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
 import pc2.lab.aula09.controller.ProgramPaint;
 import pc2.lab.aula09.view.IMenuView;
 import pc2.lab.aula09.view.IQuadrado;
+import pc2.lab.aula09.dao.DAO;
 
 public class QuadradoConsole extends BasicConsole implements IQuadrado {
+
 
     public void askSubMenu(ProgramPaint programa) {
         OpcoesMenuEnum opcaosub = OpcoesMenuEnum.LISTAR;
@@ -20,7 +22,7 @@ public class QuadradoConsole extends BasicConsole implements IQuadrado {
             switch (opcaosub) {
                 case NOVO:
                 Quadrado quad = askQuadrado();
-                 programa.insertFiguraGeometrica(quad);
+                 //dao.insertFiguraGeometrica(quad);
                     break;
                 case EDITAR:
 
