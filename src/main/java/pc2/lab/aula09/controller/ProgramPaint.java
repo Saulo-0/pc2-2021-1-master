@@ -63,13 +63,10 @@ public class ProgramPaint {
                 case RETA:
                     break;
                 case QUADRADO:
-                    telaQuadrado.askSubMenu(this);
-                    opcaosub = menuTela.askSubMenu();
-                    tela.showMessage("escolhi: " + opcaosub + "\n\n");
+                    telaQuadrado.askSubMenu(dao);
                     break;
                 case RETANGULO:
-                    opcaosub = menuTela.askSubMenu();
-                    tela.showMessage("escolhi: " + opcaosub + "\n\n");
+                    telaRetangulo.askSubMenu(dao);
                     break;
                 case CIRCULO:
                     telaCirculo.askSubMenu(dao);

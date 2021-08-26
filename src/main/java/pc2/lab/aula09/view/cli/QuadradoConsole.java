@@ -9,8 +9,7 @@ import pc2.lab.aula09.dao.DAO;
 
 public class QuadradoConsole extends BasicConsole implements IQuadrado {
 
-
-    public void askSubMenu(ProgramPaint programa) {
+    public void askSubMenu(DAO dao) {
         OpcoesMenuEnum opcaosub = OpcoesMenuEnum.LISTAR;
         MenuConsole menuTela = new MenuConsole();
 
@@ -21,8 +20,8 @@ public class QuadradoConsole extends BasicConsole implements IQuadrado {
 
             switch (opcaosub) {
                 case NOVO:
-                Quadrado quad = askQuadrado();
-                 //dao.insertFiguraGeometrica(quad);
+                 Quadrado quad = askFigura();
+                 dao.insertFiguraGeometrica(quad);
                     break;
                 case EDITAR:
 
@@ -53,7 +52,7 @@ public class QuadradoConsole extends BasicConsole implements IQuadrado {
         } while (opcaosub != OpcoesMenuEnum.SAIR);
 
     }
-    public Quadrado askQuadrado() {
+    public Quadrado askFigura() {
         showMessage("Digite um interio para o tamanho do lado do quadrado: ");
         int tamanho = in.nextInt();
         Quadrado quad = new Quadrado(tamanho);
