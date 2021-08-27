@@ -8,9 +8,9 @@ public class Ponto {
     private String color;
 
     public Ponto() {
-        this.x = 0;
-        this.y = 0;
-        color = "Black";
+        this.x = x;
+        this.y = y;
+        this.color = color;
     }
 
     public Ponto(int x, int y) {
@@ -50,5 +50,9 @@ public class Ponto {
                 "x=" + x +
                 ", y=" + y +
                 '}';
+    }
+    @Override
+    public int hashCode() {
+        return 2;
     }
 }

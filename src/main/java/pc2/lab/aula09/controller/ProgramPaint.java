@@ -21,12 +21,14 @@ public class ProgramPaint {
     private LosangoConsole telaLosango;
     private RetanguloConsole telaRetangulo;
     private QuadradoConsole telaQuadrado;
+    private RetaConsole telaReta;
 
     private CirculoCtrl circleC;
     private TrianguloCtrl triC;
     private LosangoCtrl losanguloC;
     private RetanguloCtrl retC;
     private QuadradoCtrl quadC;
+    private RetaCtrl retaC;
 
     public ProgramPaint(){
         menuTela = new MenuConsole();
@@ -39,6 +41,7 @@ public class ProgramPaint {
         telaLosango = new LosangoConsole();
         telaRetangulo = new RetanguloConsole();
         telaQuadrado = new QuadradoConsole();
+        telaReta = new RetaConsole();
 
         circleC = new CirculoCtrl();
         triC = new TrianguloCtrl();
@@ -61,6 +64,7 @@ public class ProgramPaint {
                 case TEXTO:
                     break;
                 case RETA:
+                    telaReta.askSubMenu(dao);
                     break;
                 case QUADRADO:
                     telaQuadrado.askSubMenu(dao);
