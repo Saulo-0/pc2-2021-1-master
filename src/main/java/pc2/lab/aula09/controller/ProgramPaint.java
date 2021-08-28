@@ -76,7 +76,7 @@ public class ProgramPaint {
                     telaCirculo.askSubMenu(dao);
                     break;
                 case LOSANGO:
-                    telaLosango.askSubMenu(dao);
+                    telaLosango.askSubMenu(dao, 6);
                     break;
                 case TRIANGULO:
                     telaTriangulo.askSubMenu(dao);

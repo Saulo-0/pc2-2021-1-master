@@ -39,7 +39,7 @@ public class DAO  {
     }
     public void listar(int nome) {
         for (int i = 0; i < vetor.length; i++) {
-            if(vetor[i] != null && vetor[i].hashCode() == 6) {
+            if(vetor[i] != null && vetor[i].hashCode() == nome) {
                 tela.showLineMessage(""+ i + " - "+vetor[i].toString());
             }
         }
@@ -70,6 +70,9 @@ public class DAO  {
         }
     }
 
+   public void setVetor(int numero , FiguraGeometrica geo){
+               vetor[numero] = geo;
+   }
 
     public void salvarEmArquivos() throws IOException {
 

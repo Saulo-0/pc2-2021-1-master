@@ -8,7 +8,7 @@ import pc2.lab.aula09.dao.DAO;
 
 public class LosangoConsole extends BasicConsole implements ILosango {
 
-    public void askSubMenu(DAO dao) {
+    public void askSubMenu(DAO dao, int hash) {
         OpcoesMenuEnum opcaosub = OpcoesMenuEnum.LISTAR;
         MenuConsole menuTela = new MenuConsole();
 
@@ -19,14 +19,14 @@ public class LosangoConsole extends BasicConsole implements ILosango {
 
             switch (opcaosub) {
                 case NOVO:
-                    Losango losangulo = askFigura();
+                    Losango losangulo = criar();
                     dao.insertFiguraGeometrica(losangulo);
                     break;
                 case EDITAR:
-
+                    editar(dao);
                     break;
                 case LISTAR:
-                    dao.listar(6);
+                    dao.listar(hash);
                     break;
                 case MOSTRAR:
 
@@ -35,13 +35,7 @@ public class LosangoConsole extends BasicConsole implements ILosango {
 
                     break;
                 case VOLTAR:
-
-                    break;
-                case RECARREGAR:
-                    break;
-                case SALVAR:
-
-                case SAIR:
+                    opcaosub = OpcoesMenuEnum.SAIR;
                     break;
                 default:
                     break;
@@ -52,12 +46,19 @@ public class LosangoConsole extends BasicConsole implements ILosango {
 
 
     }
-    public Losango askFigura() {
+    public Losango criar() {
         showLineMessage("Digite um inteiro para o tamanho da diagonal maior: ");
         int diagonalMaior = in.nextInt();
         showLineMessage("Digite um inteiro para o tamanho da diagonal menor: ");
         int diagonalMenor = in.nextInt();
         Losango losangulo = new Losango(diagonalMaior , diagonalMenor);
         return losangulo;
+    }
+
+    public void editar(DAO dao){
+        showLineMessage("Posição do vetor: ");
+        int numero = in.nextInt();
+        Losango geo =  criar();
+        dao.setVetor(numero, geo);
     }
 }
