@@ -74,6 +74,11 @@ public class DAO  {
                vetor[numero] = geo;
    }
 
+   public FiguraGeometrica getVetor(int numero){
+        return vetor.clone()[numero];
+
+   }
+
     public void salvarEmArquivos() throws IOException {
 
         FileOutputStream arquivo = null;

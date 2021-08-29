@@ -32,6 +32,14 @@ public class Losango extends FiguraGeometrica {
         return hipotenusa * 4;
     }
 
+    public int getDiagonalMaior() {
+        return diagonalMaior;
+    }
+
+    public int getDiagonalMenor() {
+        return diagonalMenor;
+    }
+
     public String toString() {
         return "Losango | Area => " + getArea() + " Perimetro => " + getPerimetro();
     }

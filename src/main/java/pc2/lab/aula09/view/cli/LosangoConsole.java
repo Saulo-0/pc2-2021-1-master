@@ -1,6 +1,7 @@
 package pc2.lab.aula09.view.cli;
 
 import pc2.lab.aula09.controller.ProgramPaint;
+import pc2.lab.aula09.model.FiguraGeometrica;
 import pc2.lab.aula09.model.Losango;
 import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
 import pc2.lab.aula09.view.ILosango;
@@ -23,16 +24,16 @@ public class LosangoConsole extends BasicConsole implements ILosango {
                     dao.insertFiguraGeometrica(losangulo);
                     break;
                 case EDITAR:
-                    editar(dao);
+                    editar(dao, hash);
                     break;
                 case LISTAR:
                     dao.listar(hash);
                     break;
                 case MOSTRAR:
-
+                    mostrar(dao, hash);
                     break;
                 case EXCLUIR:
-
+                    excluir(dao, hash);
                     break;
                 case VOLTAR:
                     opcaosub = OpcoesMenuEnum.SAIR;
@@ -55,10 +56,28 @@ public class LosangoConsole extends BasicConsole implements ILosango {
         return losangulo;
     }
 
-    public void editar(DAO dao){
+    public void editar(DAO dao, int hash){
+        dao.listar(hash);
         showLineMessage("Posição do vetor: ");
         int numero = in.nextInt();
         Losango geo =  criar();
         dao.setVetor(numero, geo);
     }
+
+    public void excluir(DAO dao, int hash){
+        dao.listar(hash);
+        showLineMessage("Posição do vetor: ");
+        int numero = in.nextInt();
+        FiguraGeometrica geo =  null;
+        dao.setVetor(numero, geo);
+    }
+
+    public void mostrar(DAO dao, int hash){
+        dao.listar(hash);
+        showLineMessage("Posição do vetor: ");
+        int numero = in.nextInt();
+        Losango dados = (Losango)dao.getVetor(numero);
+        showLineMessage(" Losango|  D.menor: "+ dados.getDiagonalMenor() +" , D.maior: "+dados.getDiagonalMaior());
+    }
+
 }
