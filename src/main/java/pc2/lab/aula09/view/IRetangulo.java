@@ -4,5 +4,5 @@ import pc2.lab.aula09.model.Retangulo;
 
 public interface IRetangulo {
 
-    public Retangulo askFigura();
+    public Retangulo criar();
 }

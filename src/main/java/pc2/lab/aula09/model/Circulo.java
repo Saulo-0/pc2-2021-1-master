@@ -32,6 +32,10 @@ public class Circulo extends FiguraGeometrica{
         return 6.28 * tamanhoRaio;
     }
 
+    public double getTamanhoRaio(){
+        return tamanhoRaio;
+    }
+
     @Override
     public String toString() {
         return "Circulo | Area => "+ getArea() +" Perimetro => "+ getPerimetro();

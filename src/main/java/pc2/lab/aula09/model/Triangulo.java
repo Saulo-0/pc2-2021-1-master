@@ -31,6 +31,18 @@ public class Triangulo extends FiguraGeometrica{
         return  Math.sqrt(semiPerimetro*(semiPerimetro - ladoA) * (semiPerimetro - ladoB) * (semiPerimetro - ladoC));
     }
 
+    public int getLadoA() {
+        return ladoA;
+    }
+
+    public int getLadoB() {
+        return ladoB;
+    }
+
+    public int setLadoC() {
+        return ladoC;
+    }
+
     public String toString() {
         return "Triângulo | Area => "+ getArea() +" Perimetro => "+ getPerimetro();
     }

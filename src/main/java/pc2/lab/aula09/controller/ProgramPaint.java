@@ -64,22 +64,22 @@ public class ProgramPaint {
                 case TEXTO:
                     break;
                 case RETA:
-                    telaReta.askSubMenu(dao);
+                    telaReta.askSubMenu(dao, 2);
                     break;
                 case QUADRADO:
-                    telaQuadrado.askSubMenu(dao);
+                    telaQuadrado.askSubMenu(dao, 3);
                     break;
                 case RETANGULO:
-                    telaRetangulo.askSubMenu(dao);
+                    telaRetangulo.askSubMenu(dao, 4);
                     break;
                 case CIRCULO:
-                    telaCirculo.askSubMenu(dao);
+                    telaCirculo.askSubMenu(dao, 5);
                     break;
                 case LOSANGO:
                     telaLosango.askSubMenu(dao, 6);
                     break;
                 case TRIANGULO:
-                    telaTriangulo.askSubMenu(dao);
+                    telaTriangulo.askSubMenu(dao, 7);
                     break;
                 case DESENHAR:
                     break;

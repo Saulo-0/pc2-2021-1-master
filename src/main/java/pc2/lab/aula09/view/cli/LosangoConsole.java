@@ -1,11 +1,12 @@
 package pc2.lab.aula09.view.cli;
 
 import pc2.lab.aula09.controller.ProgramPaint;
-import pc2.lab.aula09.model.FiguraGeometrica;
+import pc2.lab.aula09.dao.DAO;
 import pc2.lab.aula09.model.Losango;
+import pc2.lab.aula09.model.FiguraGeometrica;
 import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
 import pc2.lab.aula09.view.ILosango;
-import pc2.lab.aula09.dao.DAO;
+
 
 public class LosangoConsole extends BasicConsole implements ILosango {
 

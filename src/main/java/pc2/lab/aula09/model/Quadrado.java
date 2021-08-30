@@ -48,6 +48,9 @@ public class Quadrado extends Retangulo{
         return tamanhoLado*4;
     }
 
+    public int getTamanhoLado(){
+        return tamanhoLado;
+    }
     @Override
     public String toString() {
         return "Quadrado:| Area=> "+ getArea() + " Perimetro => "+ getPerimetro();
@@ -65,6 +68,6 @@ public class Quadrado extends Retangulo{
 
     @Override
     public int hashCode() {
-        return tamanhoLado;
+        return 3;
     }
 }

@@ -61,4 +61,5 @@ public class Retangulo extends Quadrilatero{
     public int hashCode() {
         return 4;
     }
+
 }
