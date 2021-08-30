@@ -1,38 +1,12 @@
 package pc2.lab.aula09.controller;
 
-import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
 import pc2.lab.aula09.model.Losango;
+import pc2.lab.aula09.view.cli.LosangoConsole;
 
-public class LosangoCtrl implements ILosangoCtrl{
+public class LosangoCtrl extends SubMenuICEEMCtrl <Losango>{
+    public LosangoCtrl(){
 
-
-    @Override
-    public OpcoesMenuEnum menuPrincipal() {
-        return null;
+        tela = new LosangoConsole();
     }
 
-    @Override
-    public Losango criar() {
-        return null;
-    }
-
-    @Override
-    public void ler(Losango conta) {
-
-    }
-
-    @Override
-    public Losango atualizar(Losango cliSalvar) {
-        return null;
-    }
-
-    @Override
-    public Boolean deletar(Losango cliDeletar) {
-        return null;
-    }
-
-    @Override
-    public void liste(Losango[] listas) {
-
-    }
 }

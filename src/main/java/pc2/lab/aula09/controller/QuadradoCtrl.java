@@ -1,36 +1,12 @@
 package pc2.lab.aula09.controller;
 
 import pc2.lab.aula09.model.Quadrado;
-import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
+import pc2.lab.aula09.view.cli.QuadradoConsole;
 
-public class QuadradoCtrl implements IQuadradoCtrl{
-    @Override
-    public OpcoesMenuEnum menuPrincipal() {
-        return null;
+public class QuadradoCtrl extends SubMenuICEEMCtrl <Quadrado>{
+    public QuadradoCtrl(){
+
+        tela = new QuadradoConsole();
     }
 
-    @Override
-    public Quadrado criar() {
-        return null;
-    }
-
-    @Override
-    public void ler(Quadrado conta) {
-
-    }
-
-    @Override
-    public Quadrado atualizar(Quadrado cliSalvar) {
-        return null;
-    }
-
-    @Override
-    public Boolean deletar(Quadrado cliDeletar) {
-        return null;
-    }
-
-    @Override
-    public void liste(Quadrado[] listas) {
-
-    }
 }

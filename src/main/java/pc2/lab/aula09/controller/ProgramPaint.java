@@ -4,13 +4,12 @@ import pc2.lab.aula09.dao.DAO;
 import pc2.lab.aula09.view.IBasicView;
 import pc2.lab.aula09.model.*;
 import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
-import pc2.lab.aula09.view.IMenuView;
 import pc2.lab.aula09.view.cli.*;
 import pc2.lab.aula09.view.DesenhoBoard;
 
 public class ProgramPaint {
 
-    private IMenuView menuTela;
+    private MenuConsole menuTela;
     private FiguraGeometrica[] vetor;
     private DAO dao;
     private IBasicView tela;
@@ -31,9 +30,12 @@ public class ProgramPaint {
     private RetaCtrl retaC;
 
     public ProgramPaint(){
-        menuTela = new MenuConsole();
+
+
         dao = new DAO(10);
-        tela = new BasicConsole();
+        menuTela = new MenuConsole();
+
+
         canvas = new DesenhoBoard();
 
         telaCirculo = new CirculoConsole();
@@ -58,28 +60,34 @@ public class ProgramPaint {
         do{
             opcao = menuTela.askOpcaoMenuPrincial();
 
-            tela.showMessage("escolhi: "+ opcao+"\n\n");
+            menuTela.showMessage("escolhi: "+ opcao+"\n\n");
 
             switch (opcao) {
                 case TEXTO:
                     break;
                 case RETA:
-                    telaReta.askSubMenu(dao, 2);
+                    RetaCtrl reta = new RetaCtrl();
+                    reta.start(dao, 2);
                     break;
                 case QUADRADO:
-                    telaQuadrado.askSubMenu(dao, 3);
+                    QuadradoCtrl quadrado = new QuadradoCtrl();
+                    quadrado.start(dao, 3);
                     break;
                 case RETANGULO:
-                    telaRetangulo.askSubMenu(dao, 4);
+                    RetanguloCtrl retangulo = new RetanguloCtrl();
+                    retangulo.start(dao, 4);
                     break;
                 case CIRCULO:
-                    telaCirculo.askSubMenu(dao, 5);
+                    CirculoCtrl circulo = new CirculoCtrl();
+                    circulo.start(dao, 5);
                     break;
                 case LOSANGO:
-                    telaLosango.askSubMenu(dao, 6);
+                    LosangoCtrl losango = new LosangoCtrl();
+                    losango.start(dao, 6);
                     break;
                 case TRIANGULO:
-                    telaTriangulo.askSubMenu(dao, 7);
+                    TrianguloCtrl triangulo = new TrianguloCtrl();
+                    triangulo.start(dao, 7);
                     break;
                 case DESENHAR:
                     break;

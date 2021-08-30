@@ -1,36 +1,13 @@
 package pc2.lab.aula09.controller;
 
 import pc2.lab.aula09.model.Reta;
-import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
+import pc2.lab.aula09.view.cli.RetaConsole;
+import pc2.lab.aula09.view.cli.TrianguloConsole;
 
-public class RetaCtrl implements IRetaCtrl{
-    @Override
-    public OpcoesMenuEnum menuPrincipal() {
-        return null;
+public class RetaCtrl extends SubMenuICEEMCtrl <Reta>{
+    public RetaCtrl(){
+
+        tela = new RetaConsole();
     }
 
-    @Override
-    public Reta criar() {
-        return null;
-    }
-
-    @Override
-    public void ler(Reta conta) {
-
-    }
-
-    @Override
-    public Reta atualizar(Reta cliSalvar) {
-        return null;
-    }
-
-    @Override
-    public Boolean deletar(Reta cliDeletar) {
-        return null;
-    }
-
-    @Override
-    public void liste(Reta[] listas) {
-
-    }
 }

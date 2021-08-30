@@ -1,38 +1,12 @@
 package pc2.lab.aula09.controller;
 
-import pc2.lab.aula09.model.Losango;
-import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
 import pc2.lab.aula09.model.Circulo;
-public class CirculoCtrl implements ICirculoCrtl {
+import pc2.lab.aula09.view.cli.CirculoConsole;
 
-    @Override
-    public OpcoesMenuEnum menuPrincipal() {
-        return null;
-    }
+public class CirculoCtrl extends SubMenuICEEMCtrl <Circulo> {
+    public CirculoCtrl(){
 
-    @Override
-    public Circulo criar() {
-        return null;
-    }
-
-    @Override
-    public void ler(Circulo conta) {
-
-    }
-
-    @Override
-    public Circulo atualizar(Circulo cliSalvar) {
-        return null;
-    }
-
-    @Override
-    public Boolean deletar(Circulo cliDeletar) {
-        return null;
-    }
-
-    @Override
-    public void liste(Circulo[] listas) {
-
+        tela = new CirculoConsole();
     }
 
 }

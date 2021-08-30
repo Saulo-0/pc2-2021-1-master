@@ -1,10 +1,12 @@
 package pc2.lab.aula09.view.cli;
 
+import pc2.lab.aula09.dao.DAO;
 import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
-import pc2.lab.aula09.view.IMenuView;
+import pc2.lab.aula09.view.ICEEMview;
 
-public class MenuConsole extends BasicConsole implements IMenuView {
-    public OpcoesMenuEnum askSubMenu(){
+
+public class MenuConsole <T> extends BasicConsole implements ICEEMview<T> {
+    public OpcoesMenuEnum start(){
         showMessage("MENU\n"+
                 "Digite uma opção: \n" +
                 "1 - Novo (Criar/Adicionar novo item)\n" +
@@ -84,5 +86,30 @@ public class MenuConsole extends BasicConsole implements IMenuView {
             default:
                 return OpcoesMenuEnum.SAIR;
         }
+    }
+
+    @Override
+    public void askSubMenu(DAO dao, int hash) {
+
+    }
+
+    @Override
+    public T criar() {
+        return null;
+    }
+
+    @Override
+    public void editar(DAO dao, int hash) {
+
+    }
+
+    @Override
+    public void excluir(DAO dao, int hash) {
+
+    }
+
+    @Override
+    public void mostrar(DAO dao, int hash) {
+
     }
 }

@@ -5,49 +5,10 @@ import pc2.lab.aula09.dao.DAO;
 import pc2.lab.aula09.model.Losango;
 import pc2.lab.aula09.model.FiguraGeometrica;
 import pc2.lab.aula09.model.enums.OpcoesMenuEnum;
-import pc2.lab.aula09.view.ILosango;
+import pc2.lab.aula09.view.ICEEMview;
 
+public class LosangoConsole  extends MenuConsole <Losango> {
 
-public class LosangoConsole extends BasicConsole implements ILosango {
-
-    public void askSubMenu(DAO dao, int hash) {
-        OpcoesMenuEnum opcaosub = OpcoesMenuEnum.LISTAR;
-        MenuConsole menuTela = new MenuConsole();
-
-        do {
-
-            opcaosub = menuTela.askSubMenu();
-            showMessage("escolhi: " + opcaosub + "\n\n");
-
-            switch (opcaosub) {
-                case NOVO:
-                    Losango losangulo = criar();
-                    dao.insertFiguraGeometrica(losangulo);
-                    break;
-                case EDITAR:
-                    editar(dao, hash);
-                    break;
-                case LISTAR:
-                    dao.listar(hash);
-                    break;
-                case MOSTRAR:
-                    mostrar(dao, hash);
-                    break;
-                case EXCLUIR:
-                    excluir(dao, hash);
-                    break;
-                case VOLTAR:
-                    opcaosub = OpcoesMenuEnum.SAIR;
-                    break;
-                default:
-                    break;
-            }
-
-
-        } while (opcaosub != OpcoesMenuEnum.SAIR);
-
-
-    }
     public Losango criar() {
         showLineMessage("Digite um inteiro para o tamanho da diagonal maior: ");
         int diagonalMaior = in.nextInt();
