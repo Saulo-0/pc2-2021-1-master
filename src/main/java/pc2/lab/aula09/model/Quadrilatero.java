@@ -48,6 +48,4 @@ public abstract class Quadrilatero extends FiguraGeometrica{
         this.superiorEsquerdo = superiorEsquerdo;
     }
 
-    //public abstract double getArea();
-    //public abstract double getPerimetro();
 }

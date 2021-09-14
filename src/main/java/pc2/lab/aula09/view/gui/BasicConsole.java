@@ -118,7 +118,6 @@ public class BasicConsole {
                 "L - Listar\n" +
                 "A - Apagar Item\n" +
                 "S - Salvar\n" +
-                "R - Recarregar\n" +
                 "X - Sair\n" +
                 "Digite aqui sua escolha: ");
 

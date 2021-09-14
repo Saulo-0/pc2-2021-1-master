@@ -52,3 +52,11 @@ Diagrama de objetos.
 6.Do seu protótipo até esta etapa você acabou fazendo uso de comportamentos Polimórficos no seu trabalho prático.- 
 -Qual foi o benefício sobre a visão de "Legibilidade" do código fonte? E sobre "organização" das classes?
 Resposta:
+
+## Relatório Fase 5 PC2.
+
+O desenvolvimento das etapas foram um tanto confusas visto que era a 1ª vez me utilizando de um código parcialmente pronto, compreender de uma forma mais logica para então aplicar no programa as mudanças e adaptações demorou um certo tempo, a parametrização do código foi a mais interessante de se aprender ao longo das etapas 4 e 5, ver como o processo pode ser pequeno e um pouco complexo foi bastante curioso.
+
+Durante as etapas 1 e 2 foi onde as dificuldades mais afetaram, até chegar no mesmo modo de pensamento e logica foi custoso. O auxílio de colegas foi fundamental para minha compreensão e também foi uma troca para os 2 lados.
+
+No final mesmo ainda restando pontos onde há uma deficiência considerável, sinto que em um parâmetro geral entendi o que foi passado durante todo o trabalho e nas aulas. 

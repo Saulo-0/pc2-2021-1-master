@@ -6,7 +6,6 @@ import pc2.lab.aula09.dao.DAO;
 
 public class QuadradoConsole extends MenuConsole <Quadrado>  {
 
-
     public Quadrado criar() {
         showMessage("Digite um interio para o tamanho do lado do quadrado: ");
         int tamanho = in.nextInt();

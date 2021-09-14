@@ -50,7 +50,6 @@ public class MenuConsole <T> extends BasicConsole implements ICEEMview<T> {
                 "L - Listar\n" +
                 "A - Apagar Item\n" +
                 "S - Salvar\n" +
-                "R - Recarregar\n" +
                 "X - Sair\n" +
                 "Digite aqui sua escolha: ");
 
@@ -79,8 +78,6 @@ public class MenuConsole <T> extends BasicConsole implements ICEEMview<T> {
                 return OpcoesMenuEnum.APAGAR;
             case "S":
                 return OpcoesMenuEnum.SALVAR;
-            case "R":
-                return OpcoesMenuEnum.RECARREGAR;
             case "X":
                 return OpcoesMenuEnum.SAIR;
             default:
